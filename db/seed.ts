@@ -6,9 +6,14 @@ async function main() {
 
   // Clear existing data
   await prisma.product.deleteMany()
+  await prisma.account.deleteMany()
+  await prisma.session.deleteMany()
+  await prisma.verificationToken.deleteMany()
+  await prisma.user.deleteMany()
 
   // Seed products
   await prisma.product.createMany({ data: sampleData.products })
+  await prisma.user.createMany({ data: sampleData.users })
 
   console.log("DB seeded successfully.")
 }

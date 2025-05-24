@@ -45,7 +45,7 @@ const AddToCart = ({ cart, item }: { item: CartItem; cart: Cart }) => {
       const res = await removeItemFromCart(item.productId)
 
       toast({
-        variant: res.success ? "success" : "destructive",
+        variant: res.success ? "default" : "destructive",
         description: res.message,
       })
       return

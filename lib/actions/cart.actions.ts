@@ -81,7 +81,8 @@ export async function addItemToCart(data: CartItem) {
         if (product.stock < existingItem.qty + 1) {
           throw new Error("Not enough stock for this product")
         }
-        ;(cart.items as CartItem).find(
+
+        cart.items.find(
           (cartItem) => cartItem.productId === item.productId
         )!.qty = existingItem.qty + 1
       } else {
